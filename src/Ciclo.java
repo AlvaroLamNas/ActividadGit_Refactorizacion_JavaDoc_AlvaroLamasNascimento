@@ -1,21 +1,42 @@
 import java.util.ArrayList;
 
 public class Ciclo {
-    public String NOMBRE_CICLO;
-    public ArrayList<Estudiante> LISTA_ESTUDIANTES = new ArrayList<>();
+    private String nombreCiclo;
+    private ArrayList<Estudiante> listaEstudiantes;
 
-    public Ciclo(String NOMBRE_CICLO) {
-        this.NOMBRE_CICLO = new String(NOMBRE_CICLO);
+    public Ciclo(String nombreCiclo) {
+        this.nombreCiclo = new String(nombreCiclo); 
+        this.listaEstudiantes = new ArrayList<>();
+    }
+    
+    
+
+    public String getNombreCiclo() {
+		return nombreCiclo;
+	}
+
+	public void setNombreCiclo(String nombreCiclo) {
+		this.nombreCiclo = nombreCiclo;
+	}
+
+	public ArrayList<Estudiante> getListaEstudiantes() {
+		return listaEstudiantes;
+	}
+
+	public void setListaEstudiantes(ArrayList<Estudiante> listaEstudiantes) {
+		this.listaEstudiantes = listaEstudiantes;
+	}
+
+
+
+	public void agregarEstudiante(Estudiante e) { 
+    	listaEstudiantes.add(e); 
     }
 
-    public void Agregar_estudiante(Estudiante e) { 
-        LISTA_ESTUDIANTES.add(e); 
-    }
-
-    public String datos_ciclo() {  
-        String datos = "Ciclo: " + NOMBRE_CICLO + "\nEstudiantes:\n";
-        for (Estudiante e : LISTA_ESTUDIANTES) {
-            datos += e.datos_estudiante() + "\n";
+    public String datosCiclo() {  
+        String datos = "Ciclo: " + nombreCiclo + "\nEstudiantes:\n";
+        for (Estudiante e : listaEstudiantes) {
+            datos += e.datosEstudiante() + "\n";
         }
         return datos;
     }
